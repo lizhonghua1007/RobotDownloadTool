@@ -40,11 +40,11 @@ class Option:
         # option xf为解压，cf为压缩
         if option == 'cf':
             # if self.ssh.run_shell('cd ' + self.master + self.branch + ';ls')
-            command = cmd + ' -cf ' + self.file + '.tar.gz ' + self.file
+            command = cmd + ' -pzcf ' + self.file + '.tar.gz ' + self.file
             self.ssh.run_shell('cd ' + self.master + self.branch + ';' + command)
             return '压缩' + self.file + '.tar.gz ' + '文件'
         elif option == 'xf':
-            command = cmd + ' -xf ' + self.file + '.tar.gz'
+            command = cmd + ' -xpf ' + self.file + '.tar.gz'
             self.ssh.run_shell('cd ' + self.master + self.branch + ';' + command)
             return '解压' + self.file + '.tar.gz ' + '文件'
 
