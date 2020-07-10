@@ -6,6 +6,8 @@ from business.sshCall import SSHStep
 from database.sshBaseConnect import SSH_test
 from database.readConf import ReadIni
 from PyQt5.QtGui import QIcon
+import _thread
+import time
 
 class MyWindow(QMainWindow, Ui_MainWindow):
     def __init__(self, parent=None):
@@ -164,7 +166,12 @@ class MyWindow(QMainWindow, Ui_MainWindow):
             else:
                 information = self.messageBoxinstall(self.selectBrunchChange(), self.hostname)
                 if information == 16384:  # 选择yes
-                    self.check()
+                    # self.check()
+                    try:
+                        _thread.start_new_thread(self.check,())
+
+                    except:
+                        print('无法启动线程')
                 else:
                     print('取消')
 

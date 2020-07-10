@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2dfb1a83-4a62-4f18-8f81-7ae3554b4dfe" name="Default Changelist" comment="" />
+    <list default="true" id="2dfb1a83-4a62-4f18-8f81-7ae3554b4dfe" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RobotDownloadTool.py" beforeDir="false" afterPath="$PROJECT_DIR$/RobotDownloadTool.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/readme.txt" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1dWeCMl8G4VAhNG9drtkF5HtSYB" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
@@ -85,6 +93,39 @@
       <option name="presentableId" value="Default" />
       <updated>1592545147754</updated>
     </task>
+    <task id="LOCAL-00001" summary="添加readme.txt说明文档，对版本新家功能进行说明">
+      <created>1593428320573</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1593428320573</updated>
+    </task>
+    <task id="LOCAL-00002" summary="修改tar压缩和解压方式。相对之前版本，此tar压缩方式为pzcf,解压方式为xpf,可以保留文件夹权限">
+      <created>1593428704371</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1593428704371</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="添加readme.txt说明文档，对版本新家功能进行说明" />
+    <MESSAGE value="修改tar压缩和解压方式。相对之前版本，此tar压缩方式为pzcf,解压方式为xpf,可以保留文件夹权限" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改tar压缩和解压方式。相对之前版本，此tar压缩方式为pzcf,解压方式为xpf,可以保留文件夹权限" />
   </component>
 </project>
