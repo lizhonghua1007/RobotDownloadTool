@@ -44,7 +44,8 @@ class MyWindow(QMainWindow, Ui_MainWindow):
 
         elif select == 'DstSSH':
             dic = ReadIni(set.TEST_CONFIG, 'DstSSH').ReadIniFile()
-            host = dic['host']
+            # host = dic['host']
+            host = self.dstHost.text()
             port = int(dic['port'])
             user = dic['user']
             password = dic['password']
@@ -80,7 +81,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
     def click_ssh_dst_test(self):
         tup = self.set_sourceOrdst('DstSSH')
         host, port, user, passwd = tup
-        host = self.dstHost.text()
+        # host = self.dstHost.text()
         ssh = SSH_test(host, port, user, passwd)
         result = ssh.sshConnect()
         if result == '成功':
@@ -166,12 +167,12 @@ class MyWindow(QMainWindow, Ui_MainWindow):
             else:
                 information = self.messageBoxinstall(self.selectBrunchChange(), self.hostname)
                 if information == 16384:  # 选择yes
-                    # self.check()
-                    try:
-                        _thread.start_new_thread(self.check,())
-
-                    except:
-                        print('无法启动线程')
+                    self.check()
+                    # try:
+                    #     _thread.start_new_thread(self.check,())
+                    #
+                    # except:
+                    #     print('无法启动线程')
                 else:
                     print('取消')
 
