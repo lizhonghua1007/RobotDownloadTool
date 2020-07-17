@@ -6,6 +6,7 @@ from business.sshCall import SSHStep
 from database.sshBaseConnect import SSH_test
 from database.readConf import ReadIni
 from PyQt5.QtGui import QIcon
+import threading
 import _thread
 import time
 
@@ -96,6 +97,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
     def log(self,logtext):
         self.logView.append(logtext)
         self.flush()
+        time.sleep(1)
 
     # 点击确定，确定分支的值
     def check(self):
@@ -167,25 +169,30 @@ class MyWindow(QMainWindow, Ui_MainWindow):
             else:
                 information = self.messageBoxinstall(self.selectBrunchChange(), self.hostname)
                 if information == 16384:  # 选择yes
-                    self.check()
-                    # try:
-                    #     _thread.start_new_thread(self.check,())
-                    #
-                    # except:
-                    #     print('无法启动线程')
+                    # self.check()
+                    try:
+                        threadCheck = threading.Thread(target=self.check)
+                        threadCheck.setDaemon(True)
+                        threadCheck.start()
+
+                    except:
+                        print('无法启动线程')
                 else:
                     print('取消')
 
 if __name__ == '__main__':
-    app = QApplication(sys.argv)
-    myWin = MyWindow()
-    myWin.show()
-    myWin.getSSHInformation('SourceSSH')
-    myWin.getSSHInformation('DstSSH')
-    myWin.sourceSSHTest.clicked.connect((myWin.click_ssh_source_test))
-    myWin.dstSSHTest.clicked.connect((myWin.click_ssh_dst_test))
-    myWin.commit.clicked.connect(myWin.information)
-    myWin.selectFile.clicked.connect(myWin.selectDir)
-    myWin.setWindowIcon(QIcon(set.logoImage))
+    try:
+        app = QApplication(sys.argv)
+        myWin = MyWindow()
+        myWin.show()
+        myWin.getSSHInformation('SourceSSH')
+        myWin.getSSHInformation('DstSSH')
+        myWin.sourceSSHTest.clicked.connect((myWin.click_ssh_source_test))
+        myWin.dstSSHTest.clicked.connect((myWin.click_ssh_dst_test))
+        myWin.commit.clicked.connect(myWin.information)
+        myWin.selectFile.clicked.connect(myWin.selectDir)
+        myWin.setWindowIcon(QIcon(set.logoImage))
 
-    sys.exit(app.exec_())
+        sys.exit(app.exec_())
+    except Exception as e:
+        print(e)
