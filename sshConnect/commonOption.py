@@ -26,7 +26,12 @@ class Option:
             # 切割master,获取到ros_slam地址
             ros_slam = self.master.split(self.master.split('/')[4])[0]
             branchFile = self.ssh.run_shell('cd ' + ros_slam + ';ls')
-            if branchFile == '':
+            branchFile = branchFile.split('\n')
+            flag = -1
+            for branch in branchFile:
+                if branch == 'install_isolated':
+                    flag = 1
+            if flag == -1:
                 print('此次为第一次安装，配置文件不需要备份')
                 return '此次为第一次安装，配置文件不需要备份'
             else:

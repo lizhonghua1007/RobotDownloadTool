@@ -119,7 +119,6 @@ class MyWindow(QMainWindow, Ui_MainWindow):
             host, port, user, passwd = tup
             self.log('备份机器人配置文件......')
             dst_set_file_tar, dst_set_file_dw = ssh.sshDstShareBackup(host, port, user, passwd)
-            # dst_set_file_tar  此次为第一次安装，项目不需要备份，需要删除之前安装过的rcp_slam.tar.gz
             if dst_set_file_tar == '此次为第一次安装，配置文件不需要备份':
                 localFileSlam = ssh.deleteLocalFile('rcp_slam.tar.gz')
                 self.log('删除本地缓存文件，文件路径为:' + localFileSlam)
